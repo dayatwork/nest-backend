@@ -3,6 +3,7 @@ import {
   IsEmail,
   IsString,
   IsPhoneNumber,
+  IsEnum,
 } from 'class-validator';
 
 export class CreatePatientDto {
@@ -17,4 +18,10 @@ export class CreatePatientDto {
 
   @IsDateString()
   readonly dob: string;
+
+  @IsEnum(['active', 'inactive'])
+  readonly status: string;
+
+  @IsEnum(['male', 'female'])
+  readonly gender: string;
 }

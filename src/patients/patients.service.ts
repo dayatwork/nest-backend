@@ -1,8 +1,4 @@
-import {
-  BadRequestException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import {
   FilterOperator,
@@ -28,8 +24,12 @@ export class PatientsService {
       searchableColumns: ['name', 'email', 'dob', 'phone'],
       defaultSortBy: [['id', 'DESC']],
       filterableColumns: {
-        dob: [FilterOperator.GTE, FilterOperator.LTE],
-        name: [FilterOperator.EQ, FilterOperator.NOT],
+        dob: [FilterOperator.GTE, FilterOperator.LTE, FilterOperator.BTW],
+        name: [FilterOperator.EQ],
+        email: [FilterOperator.EQ],
+        phone: [FilterOperator.EQ],
+        gender: [FilterOperator.EQ, FilterOperator.IN],
+        status: [FilterOperator.EQ, FilterOperator.IN],
       },
     });
   }

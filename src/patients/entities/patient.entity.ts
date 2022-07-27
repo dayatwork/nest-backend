@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn, Unique } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Patient {
@@ -16,4 +16,10 @@ export class Patient {
 
   @Column()
   dob: string;
+
+  @Column()
+  status: string;
+
+  @Column()
+  gender: string;
 }

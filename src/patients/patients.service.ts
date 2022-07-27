@@ -20,7 +20,15 @@ export class PatientsService {
 
   findAll(query: PaginateQuery): Promise<Paginated<Patient>> {
     return paginate(query, this.patientRepository, {
-      sortableColumns: ['id', 'name', 'email', 'dob', 'phone'],
+      sortableColumns: [
+        'id',
+        'name',
+        'email',
+        'dob',
+        'phone',
+        'gender',
+        'status',
+      ],
       searchableColumns: ['name', 'email', 'dob', 'phone'],
       defaultSortBy: [['id', 'DESC']],
       filterableColumns: {
